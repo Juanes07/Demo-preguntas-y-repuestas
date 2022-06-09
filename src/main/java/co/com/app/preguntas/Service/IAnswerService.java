@@ -1,6 +1,6 @@
 //paquetes
 package co.com.app.preguntas.Service;
-import co.com.app.preguntas.DTO.AnswerDto;
+import co.com.app.preguntas.collection.Answer;
 
 //librerias
 import reactor.core.publisher.Flux;
@@ -10,13 +10,13 @@ import reactor.core.publisher.Mono;
 public interface IAnswerService {
 
     //listas Respuestas
-    Flux<AnswerDto> listasRespuestas();
+    Flux<Answer> listasRespuestas();
 
     //guardar Respuestas
-    Mono<AnswerDto> guardarRespuestas(AnswerDto answerDto);
+    Mono<Answer> guardarRespuestas(Answer answer);
 
     //buscar Respuestas por ID
-    Mono<AnswerDto> buscarRespuestasPorId(String answerId);
+    Mono<Answer> buscarRespuestasPorId(String answerId);
 
     //Borrar Respuestas
     Mono<Void> eliminarRespuesta(String answerId);
