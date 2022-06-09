@@ -1,10 +1,17 @@
 package co.com.app.preguntas;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class PreguntasApplication {
+
+	@Bean
+	public ModelMapper mapper() {
+		return new ModelMapper();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(PreguntasApplication.class, args);
