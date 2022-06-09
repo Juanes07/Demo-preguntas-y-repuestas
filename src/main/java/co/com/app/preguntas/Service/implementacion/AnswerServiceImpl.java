@@ -43,7 +43,7 @@ public class AnswerServiceImpl implements IAnswerService {
 
     @Override
     public Mono<Void> eliminarRespuesta(String answerId) {
-        repositoryAnswer.deleteById(answerId);
-        return Mono.empty();
+
+        return repositoryAnswer.deleteById(answerId);
     }
 }
