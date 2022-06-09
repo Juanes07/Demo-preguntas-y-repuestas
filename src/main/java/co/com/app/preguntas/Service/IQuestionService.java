@@ -1,7 +1,7 @@
 //paquetes
 package co.com.app.preguntas.Service;
 
-import co.com.app.preguntas.DTO.QuestionDto;
+import co.com.app.preguntas.collection.Question;
 
 //librerias
 import co.com.app.preguntas.collection.Question;
@@ -12,14 +12,14 @@ import reactor.core.publisher.Mono;
 public interface IQuestionService {
 
     //listas Preguntas
-    Flux<QuestionDto> listarPreguntas();
+    Flux<Question> listarPreguntas();
 
     //guardar Pregunta
-    Mono<QuestionDto> guardarPregunta(QuestionDto questionDto);
+    Mono<Question> guardarPregunta(Question question);
 
     //buscar Pregunta por ID
-    Mono<QuestionDto> buscarPreguntaPorId(String questionId);
+    Mono<Question> buscarPreguntaPorId(String question);
 
     //Borrar pregunta
-    Mono<Void> eliminarPregunta(String questionId);
+    Mono<Void> eliminarPregunta(String question);
 }
