@@ -38,12 +38,12 @@ export class RegistroComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: '!Exitoso¡',
-            detail: 'Usuario Almacenado correctamente',
+            detail: 'Usuario Creado, valide su correo para poder iniciar sesión',
           });
           this.authService.verificar();
           setTimeout(() => {
             this.route.navigate(['preguntas']);
-          }, 2000);
+          }, 5000);
         } else {
           this.messageService.add({
             severity: 'error',
