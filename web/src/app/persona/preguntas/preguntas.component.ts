@@ -37,12 +37,12 @@ export class PreguntasComponent implements OnInit {
     this.service.getPage(this.page).subscribe((data) => {
         this.questions = data;
     });
-    this.service
-      .getTotalPages()
-      .subscribe((data) => (this.pages = new Array(data)));
-    this.service
-      .getCountQuestions()
-      .subscribe((data) => (this.totalQuestions = data));
+    // this.service
+    //   .getTotalPages()
+    //   .subscribe((data) => (this.pages = new Array(data)));
+    // this.service
+    //   .getCountQuestions()
+    //   .subscribe((data) => (this.totalQuestions = data));
   }
 
   isLast(): boolean {
@@ -68,11 +68,11 @@ export class PreguntasComponent implements OnInit {
   }
 
   traerdatos() {
-    this.userLogged.subscribe((value) => {     
+    this.userLogged.subscribe((value) => {
       if (value?.email == undefined) {
-        this.disabled = true;       
+        this.disabled = true;
       } else {
-        this.disabled = false;     
+        this.disabled = false;
       }
     });
   }
