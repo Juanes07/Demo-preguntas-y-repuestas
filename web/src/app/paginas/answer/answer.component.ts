@@ -31,7 +31,7 @@ export class AnswerComponent implements OnInit {
     private route: Router,
     private formBuilder: FormBuilder,
     private messageService: MessageService,
-    public authService: ServiceService
+    public authService: ServiceService,
   ) {
 
   }
@@ -51,7 +51,7 @@ export class AnswerComponent implements OnInit {
 
   saveAnswer(): void {
     this.answer.userId = this.answer.userId;
-    this.answer.questionId = '1';
+    this.answer.questionId = this.item.questionId;
     this.services.saveAnswer(this.answer).subscribe({
       next: (v) => {
         if(v){

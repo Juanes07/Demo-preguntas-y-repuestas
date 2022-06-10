@@ -34,8 +34,8 @@ export class ServiceService {
   async login(email: string, password: string) {
     try {
       return await this.afauth
-        .signInWithEmailAndPassword(email, password)      
-        
+        .signInWithEmailAndPassword(email, password)
+
     } catch (error) {
       return null;
     }
@@ -43,11 +43,20 @@ export class ServiceService {
   async loginRegistre(email: string, password: string) {
     try {
       return await this.afauth
-        .createUserWithEmailAndPassword(email, password)        
+        .createUserWithEmailAndPassword(email, password)
     } catch (error) {
       return null;
     }
   }
+
+   verificar() {
+    let user: any = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function () {
+        // Email sent.
+    }).catch(function (error: any) {
+        // An error happened.
+    });
+}
 
   async resetPassword(email: string) {
     try {
@@ -59,7 +68,7 @@ export class ServiceService {
   async loginGoogle(email: string, password: string) {
     try {
       return await this.afauth
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())       
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
     } catch (error) {
       return null;
     }
