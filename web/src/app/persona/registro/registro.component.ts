@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ingresar() {
+  crearUsuario() {
     this.mostrar = !this.mostrar;
     this.authService
       .loginRegistre(this.form.value.email, this.form.value.password)
@@ -40,6 +40,7 @@ export class RegistroComponent implements OnInit {
             summary: '!Exitoso¡',
             detail: 'Usuario Almacenado correctamente',
           });
+          this.authService.verificar();
           setTimeout(() => {
             this.route.navigate(['preguntas']);
           }, 2000);
