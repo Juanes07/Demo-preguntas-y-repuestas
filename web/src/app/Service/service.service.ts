@@ -34,13 +34,9 @@ export class ServiceService {
 
   async login(email: string, password: string) {
     try {
-      if(this.userData.emailVerified==true){
-        return await this.afauth
-        .signInWithEmailAndPassword(email, password)
-      } else{
-
-      }
-      return null;
+      return await this.afauth
+      .signInWithEmailAndPassword(email, password)
+      
 
     } catch (error) {
       return null;
