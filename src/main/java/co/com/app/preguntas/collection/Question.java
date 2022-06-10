@@ -10,6 +10,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,5 +25,6 @@ public class Question {
     private String question;
     private String type;
     private String category;
+    private List<Answer> answers;
 
 }
