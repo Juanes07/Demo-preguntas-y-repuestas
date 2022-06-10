@@ -13,50 +13,50 @@ export class QuestionService {
   }
 
 
-  private url: string = 'http://localhost:8080/';
+  private url: string = 'https://reto-preguntas.herokuapp.com/';
 
 
   constructor(private http: HttpClient) {}
 
   getPage(page: number): Observable<QuestionI[]> {
-    let direction = this.url + 'pagination/' + page;
+    let direction = this.url + 'api/preguntas/listar';
     return this.http.get<QuestionI[]>(direction);
   }
 
   getAnswer(id: any): Observable<QuestionI> {
-    let direction = this.url + 'get/' + id;
+    let direction = this.url + 'api/respuestas/listar';
     return this.http.get<QuestionI>(direction);
   }
 
-  getQuestion(id: string): Observable<QuestionI> {
-    let direction = this.url + 'get/' + id;
-    return this.http.get<QuestionI>(direction);
-  }
+  // getQuestion(id: string): Observable<QuestionI> {
+  //   let direction = this.url + 'get/' + id;
+  //   return this.http.get<QuestionI>(direction);
+  // }
 
-  getTotalPages(): Observable<number> {
-    let direction = this.url + 'totalPages';
-    return this.http.get<number>(direction);
-  }
+  // getTotalPages(): Observable<number> {
+  //   let direction = this.url + 'totalPages';
+  //   return this.http.get<number>(direction);
+  // }
 
-  getCountQuestions(): Observable<number> {
-    let direction = this.url + 'countQuestions';
-    return this.http.get<number>(direction);
-  }
+  // getCountQuestions(): Observable<number> {
+  //   let direction = this.url + 'countQuestions';
+  //   return this.http.get<number>(direction);
+  // }
 
   saveQuestion(question: QuestionI): Observable<any> {
-    let direction = this.url + 'create';
+    let direction = this.url + 'api/preguntas/guardar';
     return this.http.post<any>(direction, question, {
       responseType: 'text' as 'json',
     });
   }
 
   saveAnswer(answer: AnswerI): Observable<any> {
-    let direction = this.url + 'add';
+    let direction = this.url + 'api/respuestas/guardar';
     return this.http.post<any>(direction, answer);
   }
 
-  editQuestion(question: QuestionI): Observable<any> {
-    let direction = this.url + 'update';
-    return this.http.post<any>(direction, question);
-  }
+  // editQuestion(question: QuestionI): Observable<any> {
+  //   let direction = this.url + 'update';
+  //   return this.http.post<any>(direction, question);
+  // }
 }
