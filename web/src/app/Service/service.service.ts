@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -17,7 +18,7 @@ export class ServiceService {
   constructor(
     public afauth: AngularFireAuth,
     public store: AngularFirestore,
-    public router: Router
+    public router: Router,
   ) {
     this.afauth.authState.subscribe((user) => {
       if (user) {
@@ -33,8 +34,13 @@ export class ServiceService {
 
   async login(email: string, password: string) {
     try {
-      return await this.afauth
+      if(this.userData.emailVerified==true){
+        return await this.afauth
         .signInWithEmailAndPassword(email, password)
+      } else{
+
+      }
+      return null;
 
     } catch (error) {
       return null;
