@@ -28,6 +28,10 @@ export class QuestionService {
     return this.http.get<QuestionI>(direction);
   }
 
+  deleteQuestion(id: string):Observable<any>{
+    return this.http.delete(this.url+'api/preguntas/eliminar/'+id);
+  }
+
   // getQuestion(id: string): Observable<QuestionI> {
   //   let direction = this.url + 'get/' + id;
   //   return this.http.get<QuestionI>(direction);
