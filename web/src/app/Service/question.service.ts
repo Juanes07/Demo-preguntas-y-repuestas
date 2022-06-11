@@ -37,10 +37,10 @@ export class QuestionService {
      return this.http.put<any>(direction, question);
    }
 
-  //  getQuestion(id: string): Observable<QuestionI> {
-  //    let direction = this.url + 'get/' + id;
-  //    return this.http.get<QuestionI>(direction);
-  // }
+   getQuestion(id: string): Observable<QuestionI> {
+     let direction = this.url + 'api/preguntas/obtener' + id;
+     return this.http.get<QuestionI>(direction);
+  }
 
   // getTotalPages(): Observable<number> {
   //   let direction = this.url + 'totalPages';
