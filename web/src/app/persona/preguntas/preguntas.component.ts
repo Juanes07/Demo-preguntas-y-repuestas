@@ -40,9 +40,9 @@ export class PreguntasComponent implements OnInit {
     // this.service
     //   .getTotalPages()
     //   .subscribe((data) => (this.pages = new Array(data)));
-    // this.service
-    //   .getCountQuestions()
-    //   .subscribe((data) => (this.totalQuestions = data));
+     this.service
+       .getCountQuestions()
+     .subscribe((data) => (this.totalQuestions = data));
   }
 
   isLast(): boolean {
