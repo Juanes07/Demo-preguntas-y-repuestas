@@ -32,6 +32,11 @@ export class QuestionService {
     return this.http.delete(this.url+'api/preguntas/eliminar/'+id);
   }
 
+  editQuestion(question: QuestionI): Observable<any> {
+    let direction = this.url + 'api/preguntas/actualizar/' + question.id;
+     return this.http.put<any>(direction, question);
+   }
+
   //  getQuestion(id: string): Observable<QuestionI> {
   //    let direction = this.url + 'get/' + id;
   //    return this.http.get<QuestionI>(direction);
@@ -59,8 +64,5 @@ export class QuestionService {
     return this.http.post<any>(direction, answer);
   }
 
-  // editQuestion(question: QuestionI): Observable<any> {
-  //   let direction = this.url + 'update';
-  //   return this.http.post<any>(direction, question);
-  // }
+
 }
