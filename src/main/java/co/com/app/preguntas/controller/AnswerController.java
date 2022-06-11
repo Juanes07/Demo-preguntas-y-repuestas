@@ -71,8 +71,8 @@ public class AnswerController {
 
 
     //EndPoint para actualizar una respuesta por id
-    @Operation(summary ="--> Endpoint que nos permite actualizar una Respuesta por id" )
-    @ApiResponse(responseCode = "200",description = "Se Actualizo la Respuesta")
+    @Operation(summary = "--> Endpoint que nos permite actualizar una Respuesta por id")
+    @ApiResponse(responseCode = "200", description = "Se Actualizo la Respuesta")
     @PostMapping("/actualizar/{id}")
     public Mono<ResponseEntity<Mono<Answer>>> actualizarUnaRespuesta(@RequestBody Answer answer, @PathVariable("id") String id) {
         return answerService.buscarRespuestasPorId(id)
@@ -85,6 +85,31 @@ public class AnswerController {
                                 .ok()
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .body(answerMono));
+    }
+
+    //Endpoint para contar las respuestas por id de la pregunta
+    @Operation(summary = "--> Endpoint que nos permite obtener el total de respuestas por el id de la pregunta")
+    @GetMapping("/total/{id}")
+    public Mono<Long> numeroDeRespuestasPorPregunta(@PathVariable("id") String id) {
+        return answerService.listasRespuestas()
+                .filter(respuesta -> respuesta.getQuestionId()
+                        .equals(id)).count();
+
+
+    }
+    //Endpoint para listar las respuestas por id de la pregunta
+    @Operation(summary = "--> Endpoint que nos permite listar las respuestas por el id de la pregunta")
+    @ApiResponse(responseCode = "200",description = "Se listo correctamente las respuestas")
+    @GetMapping("/listarid")
+    public Mono<ResponseEntity<Flux<Answer>>> listarRespuestasPorPregunta(@PathVariable("id") String id) {
+        return Mono.just(
+                ResponseEntity
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(answerService.listasRespuestas()
+                                .filter(respuesta -> respuesta.getQuestionId()
+                                        .equals(id)))
+        );
     }
 
 
