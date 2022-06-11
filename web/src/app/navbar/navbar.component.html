@@ -17,14 +17,16 @@
           Cerrar session
         </button>
       </div>
-      <button
-      type="button"
-      label="Iniciar Sesion"
-      class="p-button-warning"
-      (click)="login()"
-    >
-      Inicia sesión
-    </button>
+      <div *ngIf="!authService.userData">
+        <button
+        type="button"
+        label="Iniciar Sesion"
+        class="p-button-warning"
+        (click)="login()"
+      >
+        Inicia sesión
+      </button>
+      </div>
     </div>
   </div>
 </nav>
