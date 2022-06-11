@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuestionI } from '../models/question-i';
 import { AnswerI } from '../models/answer-i';
+import { Injectable } from '@angular/core';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,6 @@ export class QuestionService {
 
 
   private url: string = 'https://reto-preguntas.herokuapp.com/';
-
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,6 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-
 import firebase from 'firebase/compat/app';
 import { User } from '../models/user';
 
@@ -36,7 +35,7 @@ export class ServiceService {
     try {
       return await this.afauth
       .signInWithEmailAndPassword(email, password)
-      
+
 
     } catch (error) {
       return null;
