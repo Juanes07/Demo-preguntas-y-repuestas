@@ -10,7 +10,7 @@ import { QuestionService } from 'src/app/Service/question.service';
   styleUrls: ['./requestion.component.css'],
 })
 export class RequestionComponent implements OnInit {
-  question: QuestionI | undefined;
+  question: QuestionI | any;
   answers: AnswerI[] | any;
   answersNew: AnswerI[] = [];
   currentAnswer: number = 0;
@@ -32,6 +32,7 @@ export class RequestionComponent implements OnInit {
     // this.getQuestions(`${id}`);
     this.getAnswer();
     this.onScroll();
+
   }
 
   getAnswer() {
@@ -42,16 +43,18 @@ export class RequestionComponent implements OnInit {
 
   }
 
-  // getQuestions(id: string): void {
-  //   this.questionService.getQuestion(id).subscribe((data) => {
-  //     this.question = data;
-  //     this.answers = data.answers;
-  //   });
-  // }
+  getQuestions(id: string): void {
+    this.questionService.getQuestion(id).subscribe((data) => {
+      this.question = data;
+      this.answers = data.answers;
+    });
+  }
 
   AddAnwsers(index: number) {
     let last = this.currentAnswer + index;
-    for (let i = this.currentAnswer; i < last; i++) {}
+    for (let i = this.currentAnswer; i < last; i++) {
+
+    }
     this.currentAnswer += 10;
   }
 

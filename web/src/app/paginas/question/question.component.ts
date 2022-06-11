@@ -8,6 +8,7 @@ import { AnswerI } from 'src/app/models/answer-i';
 import { QuestionI } from 'src/app/models/question-i';
 import { QuestionService } from 'src/app/Service/question.service';
 import { ServiceService } from 'src/app/Service/service.service';
+import { v4 as uuidv4} from 'uuid';
 
 
 @Component({
@@ -17,12 +18,12 @@ import { ServiceService } from 'src/app/Service/service.service';
   providers: [MessageService],
 })
 export class QuestionComponent implements OnInit {
+
+  myuuid: string = uuidv4();
   answers: AnswerI[] | undefined;
   question: answe = {
     id:
-      this.authService.userData.uid == undefined
-        ? ''
-        : this.authService.userData.uid,
+      this.myuuid,
     userId:
       this.authService.userData.uid == undefined
         ? ''
