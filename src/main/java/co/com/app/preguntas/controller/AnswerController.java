@@ -4,6 +4,7 @@ import co.com.app.preguntas.Service.implementacion.AnswerServiceImpl;
 import co.com.app.preguntas.collection.Answer;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,8 @@ public class AnswerController {
     private AnswerServiceImpl answerService;
 
     //EndPoint para listar Respuestas
+    @Operation(summary = " --> Endpoint que nos permite listar todas las respuestas")
+    @ApiResponse(responseCode = "200", description = "Se listaron las respuestas")
     @GetMapping("/listar")
     public Mono<ResponseEntity<Flux<Answer>>> listarRespuestas(){
         return Mono.just(ResponseEntity
@@ -31,6 +34,9 @@ public class AnswerController {
     }
 
     //EndPoint para guardar respuesta
+    @Operation(summary = " --> Endpoint que nos permite guardar una respuesta")
+    @Parameter(name = "Mono<Answer>", description = "Flujo de un solo dato de tipo Answer")
+    @ApiResponse(responseCode = "200", description = "Se guardo la respuesta")
     @PostMapping("/guardar")
     public Mono<ResponseEntity<Mono<Answer>>> guardarRespuesta(@RequestBody Answer answer){
         return Mono.just(ResponseEntity
@@ -40,6 +46,9 @@ public class AnswerController {
     }
 
     //EndPoint para obtener una respuesta por su Id
+    @Operation(summary = " --> Endpoint que nos permite obtener una respuesta por id")
+    @Parameter(name = "Id",description = "Se recibe un id de tipo string")
+    @ApiResponse(responseCode = "200", description = "Se obtuvo la respuesta por el id")
     @GetMapping("/obtener/{id}")
     public Mono<ResponseEntity<Mono<Answer>>> obtenerRespuestaPorId(@PathVariable("id") String answerid){
         return Mono.just(ResponseEntity
@@ -49,6 +58,9 @@ public class AnswerController {
     }
 
     //EndPoint para eliminar Respuesta por su Id
+    @Operation(summary = " --> Endpoint que nos permite eliminar una respuesta por id")
+    @Parameter(name = "Id", description = "Se recibe un id de tipo string")
+    @ApiResponse(responseCode = "200", description = "Se elimno la respuesta por id")
     @DeleteMapping("/eliminar/{id}")
     public Mono<ResponseEntity<Mono<Void>>> eliminarRespuestaPorId(@PathVariable("id")String answerId){
         return Mono.just(ResponseEntity
