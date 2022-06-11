@@ -98,4 +98,11 @@ public class QuestionController {
     }
 
 
+    //EndPoint para contar preguntas
+    @GetMapping("/total")
+    @Operation(summary = "Nos permite obtener el numero total de preguntas")
+    public Mono<Long> NumeroPreguntasTotales(){
+        return questionService.listarPreguntas().count();
+    }
+
 }
