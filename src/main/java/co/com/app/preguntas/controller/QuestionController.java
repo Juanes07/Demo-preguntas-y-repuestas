@@ -83,7 +83,7 @@ public class QuestionController {
     //Endpoint para actualizar la pregunta por id
     @Operation(summary = " --> Endpoint que nos permite actualizar una pregunta por id")
     @ApiResponse(responseCode = "200",description = "Se Actualizo la pregunta")
-    @PostMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public Mono<ResponseEntity<Mono<Question>>> actulizarUnaPregunta(@RequestBody Question question, @PathVariable("id") String id) {
         return questionService.buscarPreguntaPorId(id).map(questionActualizada ->
         {
