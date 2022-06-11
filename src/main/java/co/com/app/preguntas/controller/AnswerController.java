@@ -73,7 +73,7 @@ public class AnswerController {
     //EndPoint para actualizar una respuesta por id
     @Operation(summary = "--> Endpoint que nos permite actualizar una Respuesta por id")
     @ApiResponse(responseCode = "200", description = "Se Actualizo la Respuesta")
-    @PostMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public Mono<ResponseEntity<Mono<Answer>>> actualizarUnaRespuesta(@RequestBody Answer answer, @PathVariable("id") String id) {
         return answerService.buscarRespuestasPorId(id)
                 .map(answerActualizada -> {
