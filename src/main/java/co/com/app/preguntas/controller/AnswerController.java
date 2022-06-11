@@ -2,6 +2,8 @@ package co.com.app.preguntas.controller;
 
 import co.com.app.preguntas.Service.implementacion.AnswerServiceImpl;
 import co.com.app.preguntas.collection.Answer;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
