@@ -56,19 +56,26 @@
           label="Google"
           class="p-button-outlined p-button-secondary"
           style="margin-bottom: 10px"
-        ></button>
+        >
+          <img
+            src="https://25-horas.com/wp-content/uploads/2011/04/Google-chrome-new-logo.png"
+            style="width: 25px"
+          />
+        </button>
 
         <br />
 
         <br />
         <p>Aun no tienes cuenta? <a href="/registro">Registrate</a></p>
-        <hr>
+        <hr />
         <h6>Ingresa tu correo para recuperar contraseña</h6>
       </form>
       <form [formGroup]="form2">
         <div class="col-12 md:col-4">
           <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <span class="p-inputgroup-addon"
+              ><i class="pi pi-envelope"></i
+            ></span>
             <input
               formControlName="email"
               type="text"
@@ -91,11 +98,8 @@
         </div>
       </form>
     </div>
-
-    
   </div>
 </div>
-
 
 <p-dialog
   header="Recuperar Contraseña"
