@@ -1,6 +1,7 @@
 //paquetes
 package co.com.app.preguntas.Service;
 
+import co.com.app.preguntas.collection.Answer;
 import co.com.app.preguntas.collection.Question;
 
 //librerias
@@ -22,4 +23,10 @@ public interface IQuestionService {
 
     //Borrar pregunta
     Mono<Void> eliminarPregunta(String question);
+
+    //Actualizar respuesta
+    Mono<Question> actualizarPregunta(Question question);
+
+
+
 }

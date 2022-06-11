@@ -7,6 +7,7 @@ package co.com.app.preguntas.Service.implementacion;
 import co.com.app.preguntas.Repository.RepositoryAnswer;
 import co.com.app.preguntas.Service.IAnswerService;
 import co.com.app.preguntas.collection.Answer;
+import co.com.app.preguntas.collection.Question;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,10 @@ public class AnswerServiceImpl implements IAnswerService {
     public Mono<Void> eliminarRespuesta(String answerId) {
 
         return repositoryAnswer.deleteById(answerId);
+    }
+
+    @Override
+    public Mono<Answer> actualizarRespuesta(Answer answer) {
+        return repositoryAnswer.save(answer);
     }
 }

@@ -47,4 +47,13 @@ public class QuestionServiceImpl implements IQuestionService {
     public Mono<Void> eliminarPregunta(String questionId) {
         return questionRepository.deleteById(questionId);
     }
+
+    //Servicio para actualizar una pregunta
+    @Override
+    public Mono<Question> actualizarPregunta(Question question) {
+
+        return questionRepository.save(question);
+    }
+
+
 }

@@ -2,6 +2,7 @@
 package co.com.app.preguntas.controller;
 
 //importaciones
+
 import co.com.app.preguntas.Service.implementacion.QuestionServiceImpl;
 import co.com.app.preguntas.collection.Question;
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,7 +41,6 @@ public class QuestionController {
 
     //Endpoint para guardar una pregunta
     @Operation(summary = " --> Endpoint que nos permite guardar una pregunta")
-    @Parameter(name = "Mono<Question>", description = "Flujo de un solo dato de tipo Question")
     @ApiResponse(responseCode = "200", description = "Se guardo la pregunta")
     @PostMapping("/guardar")
     public Mono<ResponseEntity<Mono<Question>>> guardarUnaPregunta(@RequestBody Question question) {
@@ -55,7 +55,6 @@ public class QuestionController {
 
     //Endpoint para obtener una pregunta por id
     @Operation(summary = " --> Endpoint que nos permite obtener una pregunta por id")
-    @Parameter(name = "Id",description = "Se recibe un id de tipo string")
     @ApiResponse(responseCode = "200", description = "Se obtuvo la pregunta por el id")
     @GetMapping("/obtener/{id}")
     public Mono<ResponseEntity<Mono<Question>>> obtenerPreguntaPorId(@PathVariable("id") String id) {
@@ -70,7 +69,6 @@ public class QuestionController {
 
     //Endpoint para eliminar una pregunta por id
     @Operation(summary = " --> Endpoint que nos permite eliminar una pregunta por id")
-    @Parameter(name = "Id", description = "Se recibe un id de tipo string")
     @ApiResponse(responseCode = "200", description = "Se elimno la pregunta por id")
     @DeleteMapping("/eliminar/{id}")
     public Mono<ResponseEntity<Mono<Void>>> eliminarPreguntaPorId(@PathVariable("id") String id) {
@@ -81,5 +79,23 @@ public class QuestionController {
                         .body(questionService.eliminarPregunta(id))
         );
     }
+
+    //Endpoint para actualizar la pregunta por id
+    @Operation(summary = " --> Endpoint que nos permite actualizar una pregunta por id")
+    @ApiResponse(responseCode = "200",description = "Se Actualizo la pregunta")
+    @PostMapping("/actualizar/{id}")
+    public Mono<ResponseEntity<Mono<Question>>> actulizarUnaPregunta(@RequestBody Question question, @PathVariable("id") String id) {
+        return questionService.buscarPreguntaPorId(id).map(questionActualizada ->
+        {
+            questionActualizada.setQuestion(question.getQuestion());
+            questionActualizada.setType(question.getType());
+            questionActualizada.setCategory(question.getCategory());
+            return questionService.actualizarPregunta(questionActualizada);
+        }).map(questionMono -> ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(questionMono));
+    }
+
 
 }
