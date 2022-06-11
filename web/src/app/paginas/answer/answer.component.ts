@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AnswerI } from 'src/app/models/answer-i';
 import { QuestionService } from 'src/app/Service/question.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ServiceService } from 'src/app/Service/service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-answer',
