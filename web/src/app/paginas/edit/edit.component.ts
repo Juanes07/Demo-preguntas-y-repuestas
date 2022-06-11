@@ -48,6 +48,15 @@ export class EditComponent implements OnInit {
     this.question=this.idanswer;
   }
 
+  deleteQuestion(id: string): void {
+    console.log(id);
+    this.services.deleteQuestion(id).subscribe(data => this.question = data);
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+
+  }
+
 
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
