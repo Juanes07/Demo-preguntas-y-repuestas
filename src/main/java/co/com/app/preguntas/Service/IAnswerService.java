@@ -3,6 +3,7 @@ package co.com.app.preguntas.Service;
 import co.com.app.preguntas.collection.Answer;
 
 //librerias
+import co.com.app.preguntas.collection.Question;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -20,4 +21,7 @@ public interface IAnswerService {
 
     //Borrar Respuestas
     Mono<Void> eliminarRespuesta(String answerId);
+
+    //Actualizar Respuesta
+    Mono<Answer> actualizarRespuesta(Answer answer);
 }
