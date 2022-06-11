@@ -32,9 +32,9 @@ export class QuestionService {
     return this.http.delete(this.url+'api/preguntas/eliminar/'+id);
   }
 
-  // getQuestion(id: string): Observable<QuestionI> {
-  //   let direction = this.url + 'get/' + id;
-  //   return this.http.get<QuestionI>(direction);
+  //  getQuestion(id: string): Observable<QuestionI> {
+  //    let direction = this.url + 'get/' + id;
+  //    return this.http.get<QuestionI>(direction);
   // }
 
   // getTotalPages(): Observable<number> {
@@ -42,10 +42,10 @@ export class QuestionService {
   //   return this.http.get<number>(direction);
   // }
 
-  // getCountQuestions(): Observable<number> {
-  //   let direction = this.url + 'countQuestions';
-  //   return this.http.get<number>(direction);
-  // }
+   getCountQuestions(): Observable<number> {
+     let direction = this.url + 'api/preguntas/total';
+     return this.http.get<number>(direction);
+   }
 
   saveQuestion(question: QuestionI): Observable<any> {
     let direction = this.url + 'api/preguntas/guardar';
