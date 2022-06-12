@@ -14,6 +14,7 @@
 -	Despliegue con heroku y firebase
 -	Pruebas en fronted realizas con librería cypress
 -	Pruebas reactivas en backend
+-	Scroll infinito de respuestas (Las respuestas no se lograron filtrar por pregunta, se enlistan todas las respuesta de la base de datos)
 
 # Link de Deploys
 
