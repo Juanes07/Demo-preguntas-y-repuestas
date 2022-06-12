@@ -20,13 +20,19 @@
   </div>
 </div>
 <div class="container">
-  <div class="question" *ngFor="let question of questions | paginate
-  : {
-      itemsPerPage: tableSize,
-      currentPage: page,
-      totalItems: count
-    };
-let i = index">
+  <div
+    class="question"
+    *ngFor="
+      let question of questions
+        | paginate
+          : {
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count
+            };
+      let i = index
+    "
+  >
     <div class="card mb-3 h-200">
       <div class="row g-0">
         <div class="col-md-3">
@@ -83,13 +89,14 @@ let i = index">
     </div>
   </div>
 </div>
-<pagination-controls
-previousLabel="Prev"
-nextLabel="Next"
-(pageChange)="onTableDataChange($event)"
->
-</pagination-controls>
-
+<div class="pasopagina">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"
+  >
+  </pagination-controls>
+</div>
 
 <!-- <div class="container">
   <h3 class="text-center mt-5 mb-5">Angular Basic Pagination Example</h3>
