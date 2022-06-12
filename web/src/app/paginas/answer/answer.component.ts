@@ -4,7 +4,7 @@ import { AnswerI } from 'src/app/models/answer-i';
 import { QuestionService } from 'src/app/Service/question.service';
 import { MessageService } from 'primeng/api';
 import { ServiceService } from 'src/app/Service/service.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit,Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { QuestionI } from 'src/app/models/question-i';
@@ -22,7 +22,11 @@ export class AnswerComponent implements OnInit {
     rating: ['', []],
   });
 
-  @Input() item: any;
+  @Output() respuestaCreada = new EventEmitter();
+
+  @Input() item!: QuestionI;
+
+
 
   constructor(
     private modalService: NgbModal,
@@ -43,6 +47,7 @@ export class AnswerComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
   }
 
   openVerticallyCentered(content: any) {
@@ -50,8 +55,8 @@ export class AnswerComponent implements OnInit {
   }
 
   saveAnswer(): void {
-    this.answer.userId = this.item.id;
-    this.answer.questionId = this.item.userId;
+    this.answer.userId = this.answer.userId;
+    this.answer.questionId = this.answer.questionId
     this.services.saveAnswer(this.answer).subscribe({
       next: (v) => {
         if (v) {
@@ -60,9 +65,8 @@ export class AnswerComponent implements OnInit {
             severity: 'success',
             summary: 'Se ha agregado la respuesta',
           });
-          //    setTimeout(() => {
-          //    window.location.reload();
-          //  }, 1000);
+          this.respuestaCreada.emit();
+          // this.clearForm();
         }
       },
       error: (e) =>
@@ -74,4 +78,20 @@ export class AnswerComponent implements OnInit {
       complete: () => console.info('complete'),
     });
   }
+
+
+  // clearForm(){
+  //   this.answer = { questionId:
+  //     this.authService.userData.uid == undefined
+  //       ? ''
+  //       : this.authService.userData.uid,
+  //     userId:
+  //     this.authService.userData.uid == undefined
+  //       ? ''
+  //       : this.authService.userData.uid,
+  //       answer: '',
+  //       position: 0,
+  //   }
+  // }
+
 }
