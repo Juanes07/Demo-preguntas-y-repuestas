@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -18,6 +18,8 @@ import { v4 as uuidv4} from 'uuid';
   providers: [MessageService],
 })
 export class QuestionComponent implements OnInit {
+
+  @Output() preguntaCreada = new EventEmitter();
 
   myuuid: string = uuidv4();
   answers: AnswerI[] | undefined;
@@ -61,9 +63,8 @@ export class QuestionComponent implements OnInit {
              summary: 'Se ha agregado la pregunta',
 
             });
-            setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+            this.preguntaCreada.emit("pregunta creada");
+            this.clearForm();
         } else {
 
         }
@@ -82,5 +83,22 @@ export class QuestionComponent implements OnInit {
       detail: '(Campos Vacios)-Intente de Nuevo',
     });
   }
+  }
+
+
+  clearForm(){
+    this.question = {id:
+      this.authService.userData.uid == undefined
+        ? ''
+        : this.authService.userData.uid,
+    userId:
+      this.authService.userData.uid == undefined
+        ? ''
+        : this.authService.userData.uid,
+    question: '',
+    type: '',
+    category: '',
+    answers:[null],
+    start: '2'}
   }
 }
