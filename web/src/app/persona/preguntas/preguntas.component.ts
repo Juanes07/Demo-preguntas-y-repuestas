@@ -1,3 +1,11 @@
+/**
+ * Componente preguntas
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { Component, Input, OnInit } from '@angular/core';
 import { QuestionI } from 'src/app/models/question-i';
 import { QuestionService } from 'src/app/Service/question.service';
@@ -35,6 +43,9 @@ export class PreguntasComponent implements OnInit {
     this.traerdatos();
   }
 
+  /**
+   * Metodo que obtiene las preguntas
+   */
   getQuestions(): void {
     this.userLogged.subscribe(value =>{
         this.uid=value?.uid
@@ -54,11 +65,18 @@ export class PreguntasComponent implements OnInit {
      .subscribe((data) => (this.totalQuestions = data));
   }
 
-
+  /**
+   *  Metodo que valida cambios en la tabla
+   * @param event evento de la pagina
+   */
   onTableDataChange(event: any) {
     this.page = event;
     this.getQuestions();
   }
+  /**
+   *  Metodo que asigna el tamaño de la tabla (tamaño de la tabla en que ingresan las preguntas)
+   * @param event   evento de la pagina
+   */
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
@@ -87,6 +105,10 @@ export class PreguntasComponent implements OnInit {
   //   this.getQuestions();
   // }
 
+
+  /**
+   * Metodo que obtiene los datos de la usuario
+   */
   traerdatos() {
     this.userLogged.subscribe((value) => {
       if (value?.email == undefined) {

@@ -1,3 +1,11 @@
+/**
+ * Modulo routing de la aplicacion
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnswerComponent } from './paginas/answer/answer.component';

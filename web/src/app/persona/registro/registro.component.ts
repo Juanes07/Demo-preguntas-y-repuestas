@@ -1,3 +1,12 @@
+/**
+ * Componente registro
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,6 +38,9 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Metodo para registrar un usuario
+   */
   crearUsuario() {
     this.mostrar = !this.mostrar;
     this.authService
@@ -55,6 +67,9 @@ export class RegistroComponent implements OnInit {
         this.mostrar = !this.mostrar;
       });
   }
+  /**
+   * Metodo para iniciar sesion con google
+   */
   ingresarGoogle() {
     this.mostrar = !this.mostrar;
     this.authService
@@ -63,11 +78,16 @@ export class RegistroComponent implements OnInit {
         this.mostrar = !this.mostrar;
       });
   }
+  /**
+   * Metodo para obtener la informacion del usuario
+   */
   getUserLogged() {
     this.authService.getUserLogged().subscribe((res) => {
     });
   }
-
+  /**
+   * Metodo para redireccionar a la pagina de preguntas
+   */
   preguntasHome() {
     this.route.navigate(['preguntas']);
   }

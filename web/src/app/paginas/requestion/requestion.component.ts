@@ -1,3 +1,11 @@
+/**
+ * Componente requestion
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnswerI } from 'src/app/models/answer-i';
@@ -32,7 +40,9 @@ export class RequestionComponent implements OnInit {
     // this.getQuestions(`${id}`);
     this.getAnswer();
   }
-
+  /**
+   * Metodo que obtiene las respuestas
+   */
   getAnswer() {
     let id = this.route.snapshot.paramMap.get('id');
     this.service.getAnswer(id).subscribe((data) => {
@@ -40,14 +50,20 @@ export class RequestionComponent implements OnInit {
     });
 
   }
-
+  /**
+   *  Metodo que obtiene las preguntas
+   * @param id id de la pregunta
+   */
   getQuestions(id: string): void {
     this.questionService.getQuestion(id).subscribe((data) => {
       this.question = data;
       this.answers = data.answers;
     });
   }
-
+  /**
+   *  Metodo que agrega una respuesta
+   * @param index indice de la respuesta
+   */
   AddAnwsers(index: number) {
     let last = this.currentAnswer + index;
     for (let i = this.currentAnswer; i < last; i++) {
@@ -57,10 +73,7 @@ export class RequestionComponent implements OnInit {
   }
 
   onScroll() {
-
   }
-
-
 
 
 }

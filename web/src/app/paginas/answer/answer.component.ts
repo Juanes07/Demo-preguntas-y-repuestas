@@ -1,3 +1,11 @@
+/**
+ * Componente answer
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AnswerI } from 'src/app/models/answer-i';
@@ -22,7 +30,9 @@ export class AnswerComponent implements OnInit {
     rating: ['', []],
   });
 
+
   @Output() respuestaCreada = new EventEmitter();
+
 
   @Input() item!: QuestionI;
 
@@ -49,11 +59,17 @@ export class AnswerComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  /**
+   * Metodo para abrir el modal
+   * @param content Modal
+   */
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
   }
 
+  /**
+   * Metodo para crear una respuesta
+   */
   saveAnswer(): void {
     this.answer.userId = this.answer.userId;
     this.answer.questionId = this.answer.questionId
@@ -66,7 +82,6 @@ export class AnswerComponent implements OnInit {
             summary: 'Se ha agregado la respuesta',
           });
           this.respuestaCreada.emit();
-          // this.clearForm();
         }
       },
       error: (e) =>
@@ -78,20 +93,5 @@ export class AnswerComponent implements OnInit {
       complete: () => console.info('complete'),
     });
   }
-
-
-  // clearForm(){
-  //   this.answer = { questionId:
-  //     this.authService.userData.uid == undefined
-  //       ? ''
-  //       : this.authService.userData.uid,
-  //     userId:
-  //     this.authService.userData.uid == undefined
-  //       ? ''
-  //       : this.authService.userData.uid,
-  //       answer: '',
-  //       position: 0,
-  //   }
-  // }
 
 }
