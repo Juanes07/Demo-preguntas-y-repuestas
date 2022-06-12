@@ -20,7 +20,13 @@
   </div>
 </div>
 <div class="container">
-  <div class="question" *ngFor="let question of questions">
+  <div class="question" *ngFor="let question of questions | paginate
+  : {
+      itemsPerPage: tableSize,
+      currentPage: page,
+      totalItems: count
+    };
+let i = index">
     <div class="card mb-3 h-200">
       <div class="row g-0">
         <div class="col-md-3">
@@ -77,8 +83,52 @@
     </div>
   </div>
 </div>
+<pagination-controls
+previousLabel="Prev"
+nextLabel="Next"
+(pageChange)="onTableDataChange($event)"
+>
+</pagination-controls>
 
-<div class="">
+
+<!-- <div class="container">
+  <h3 class="text-center mt-5 mb-5">Angular Basic Pagination Example</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let question of questions
+            | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        "
+      >
+        <th scope="row">{{ question.userId }}</th>
+        <td>{{ questions.question }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div> -->
+
+<!-- <div class="">
   <ul class="pagination justify-content-center">
     <li class="page-item">
       <a class="page-link" (click)="previousPage()" aria-label="Previous">
@@ -94,4 +144,4 @@
       </a>
     </li>
   </ul>
-</div>
+</div> -->
