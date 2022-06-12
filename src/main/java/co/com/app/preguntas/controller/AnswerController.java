@@ -100,7 +100,7 @@ public class AnswerController {
     //Endpoint para listar las respuestas por id de la pregunta
     @Operation(summary = "--> Endpoint que nos permite listar las respuestas por el id de la pregunta")
     @ApiResponse(responseCode = "200",description = "Se listo correctamente las respuestas")
-    @GetMapping("/listarid")
+    @GetMapping("/listarid/{id}")
     public Mono<ResponseEntity<Flux<Answer>>> listarRespuestasPorPregunta(@PathVariable("id") String id) {
         return Mono.just(
                 ResponseEntity
