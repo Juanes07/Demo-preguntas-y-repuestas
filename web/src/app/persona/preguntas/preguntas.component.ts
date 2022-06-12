@@ -17,7 +17,7 @@ export class PreguntasComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
-  tableSizes: any = [3, 6, 9, 12];
+  
 
 
 
@@ -67,27 +67,27 @@ export class PreguntasComponent implements OnInit {
     this.getQuestions();
   }
 
-  isLast(): boolean {
-    let totalPeges: any = this.pages?.length;
-    return this.page == totalPeges - 1;
-  }
+  // isLast(): boolean {
+  //   let totalPeges: any = this.pages?.length;
+  //   return this.page == totalPeges - 1;
+  // }
 
-  isFirst(): boolean {
-    return this.page == 0;
-  }
+  // isFirst(): boolean {
+  //   return this.page == 0;
+  // }
 
-  previousPage(): void {
-    !this.isFirst() ? (this.page--, this.getQuestions()) : false;
-  }
+  // previousPage(): void {
+  //   !this.isFirst() ? (this.page--, this.getQuestions()) : false;
+  // }
 
-  nextPage(): void {
-    !this.isLast() ? (this.page++, this.getQuestions()) : false;
-  }
+  // nextPage(): void {
+  //   !this.isLast() ? (this.page++, this.getQuestions()) : false;
+  // }
 
-  getPage(page: number): void {
-    this.page = page;
-    this.getQuestions();
-  }
+  // getPage(page: number): void {
+  //   this.page = page;
+  //   this.getQuestions();
+  // }
 
   traerdatos() {
     this.userLogged.subscribe((value) => {

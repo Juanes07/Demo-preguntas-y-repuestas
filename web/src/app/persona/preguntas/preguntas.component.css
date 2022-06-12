@@ -16,3 +16,9 @@
   .p-rating {
     color: #ff0707;
 }
+
+.pasopagina{
+  display:flex;
+  justify-content:center;
+
+}
