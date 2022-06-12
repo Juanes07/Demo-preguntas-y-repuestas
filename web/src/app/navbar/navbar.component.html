@@ -9,10 +9,10 @@
       />
     </a>
     <div class="botones">
-      <div class="" *ngIf="authService.userData">
+      <div *ngIf="authService.userData">
         <button
         type="button" class="btn btn-primary"
-          (click)="logout()"
+        id="btn-cerrar"
         >
           Cerrar session
         </button>

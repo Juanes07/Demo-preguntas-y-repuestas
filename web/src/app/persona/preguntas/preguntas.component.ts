@@ -14,9 +14,16 @@ export class PreguntasComponent implements OnInit {
 
   totalQuestions: number = 0;
 
-  questions: QuestionI[] | undefined;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  tableSizes: any = [3, 6, 9, 12];
+
+
+
+  questions: QuestionI[] | any;
   user: any = '';
-  page: number = 0;
+  // page: number = 0;
   pages: Array<number> | undefined;
   disabled: boolean = false;
 
@@ -34,15 +41,30 @@ export class PreguntasComponent implements OnInit {
     this.userLogged.subscribe(value =>{
         this.uid=value?.uid
     });
+    //trae las preguntas de la base de datos
     this.service.getPage(this.page).subscribe((data) => {
         this.questions = data;
+
     });
+
+
     // this.service
     //   .getTotalPages()
     //   .subscribe((data) => (this.pages = new Array(data)));
      this.service
        .getCountQuestions()
      .subscribe((data) => (this.totalQuestions = data));
+  }
+
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getQuestions();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getQuestions();
   }
 
   isLast(): boolean {
