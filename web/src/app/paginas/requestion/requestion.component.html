@@ -25,7 +25,7 @@
           <p class="card-text font1">Categoria: {{ question?.category }}</p>
         </div>
         <div class="card-footer text-muted">
-          <app-answer [item]="question"></app-answer>
+          <app-answer [item]="question" (respuestaCreada)="ngOnInit()"></app-answer>
         </div>
       </div>
     </div>

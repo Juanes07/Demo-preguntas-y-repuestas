@@ -31,8 +31,6 @@ export class RequestionComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     // this.getQuestions(`${id}`);
     this.getAnswer();
-    this.onScroll();
-
   }
 
   getAnswer() {

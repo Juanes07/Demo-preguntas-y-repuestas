@@ -17,8 +17,6 @@ export class PreguntasComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
-  
-
 
 
   questions: QuestionI[] | any;
