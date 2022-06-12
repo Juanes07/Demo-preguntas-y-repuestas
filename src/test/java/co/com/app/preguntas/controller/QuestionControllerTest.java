@@ -16,22 +16,41 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ *
+ * Guardar Question Test
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 
 @RunWith(SpringRunner.class)
 @WebFluxTest(QuestionController.class)
 class QuestionControllerTest {
+    /**
+     * Inyeccion webTestClient
+     */
 
     @Autowired
     private WebTestClient webTestClient;
 
+    /**
+     * Inyeccion questionService
+     */
+
     @MockBean
     private QuestionServiceImpl questionService;
+
+    /**
+     * Inyeccion answerService
+     */
 
     @MockBean
     private AnswerServiceImpl answerService;
 
+    /**
+     * guardarQuestionTest
+     */
     @Test
     public void guardarQuestionTest(){
         Answer answer = new Answer("1", "2", "15", "es asi", 5);
@@ -45,6 +64,10 @@ class QuestionControllerTest {
                 .exchange().expectStatus().isOk();
     }
 
+    /**
+     * Listar Preguntas Test
+     */
+
     @Test
     public  void listarPreguntasTest(){
         webTestClient.get().uri("/api/preguntas/listar")
@@ -55,6 +78,9 @@ class QuestionControllerTest {
                 .getResponseBody();
     }
 
+    /**
+     * get Question Id Test
+     */
     @Test
     public void getQuestionIdTest(){
         webTestClient.get().uri("/api/preguntas/obtener/1")
@@ -64,6 +90,10 @@ class QuestionControllerTest {
                 .returnResult(Question.class)
                 .getResponseBody();
     }
+
+    /**
+     * Delete Question Test
+     */
 
     @Test
     public void deleteQuestionTest(){

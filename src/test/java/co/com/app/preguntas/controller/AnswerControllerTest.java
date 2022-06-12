@@ -2,7 +2,6 @@ package co.com.app.preguntas.controller;
 
 import co.com.app.preguntas.Service.implementacion.AnswerServiceImpl;
 import co.com.app.preguntas.collection.Answer;
-import jdk.jfr.FlightRecorder;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +11,34 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
-
+/**
+ * Test Controlador Answer
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 
 @RunWith(SpringRunner.class)
 @WebFluxTest(AnswerController.class)
 class AnswerControllerTest {
+
+    /**
+     * Inyeccion de WebTestClient
+     */
     @Autowired
     private WebTestClient webTestClient;
+
+    /**
+     * Inyeccion de AnswerService
+     */
 
     @MockBean
     private AnswerServiceImpl answerService;
 
+    /**
+     * guardar Answer Test
+     */
     @Test
     public void guardarAnswerTest() {
 
@@ -35,6 +51,10 @@ class AnswerControllerTest {
 
 
     }
+
+    /**
+     * listar Respuestas Test
+     */
 
     @Test
     public void listarRespuestasTest() {
@@ -49,6 +69,9 @@ class AnswerControllerTest {
 
     }
 
+    /**
+     * get AnswerId Test
+     */
     @Test
     public void getAnswerIdTest() {
 
@@ -62,6 +85,9 @@ class AnswerControllerTest {
 
     }
 
+    /**
+     * delete Answer Test
+     */
     @Test
     public void deleteAnswerTest(){
 
