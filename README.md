@@ -18,7 +18,7 @@
 
 # Link de Deploys
 
-Link swagger:  http://localhost:8080/swagger-ui.html
+Link swagger (Recordatorio de que swagger es a nivel local, se debe levantar el backend primero antes de acceder a este link):  http://localhost:8080/swagger-ui.html
 ![imagen](https://user-images.githubusercontent.com/96356792/173254362-f50b2fcc-d7d4-4ea2-b82e-f21506c4f9f4.png)
 
 
