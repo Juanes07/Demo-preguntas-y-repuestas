@@ -1,3 +1,11 @@
+/**
+ * Componente login
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -37,6 +45,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Metodo para iniciar sesion
+   */
   ingresar() {
     this.mostrar = !this.mostrar;
     this.authService
@@ -60,6 +71,10 @@ export class LoginComponent implements OnInit {
         this.mostrar = !this.mostrar;
       });
   }
+
+  /**
+   * Metodo para Iniciar sesion con google
+   */
   ingresarGoogle() {
     this.mostrar = !this.mostrar;
     this.authService
@@ -86,11 +101,18 @@ export class LoginComponent implements OnInit {
         this.mostrar = !this.mostrar;
       });
   }
+
+  /**
+   * Metodo para obtener informacion del usuario
+   */
   getUserLogged() {
     this.authService.getUserLogged().subscribe((res) => {
     });
   }
 
+  /**
+   * Metodo para redireccionar a la pagina de preguntas
+   */
   preguntasHome() {
     this.route.navigate(['preguntas']);
   }
@@ -119,6 +141,9 @@ export class LoginComponent implements OnInit {
     this.displayModal = true;
   }
 
+  /**
+   * Metodo para enviar correo para recuperar contraseña
+   */
   recuperarEmail() {
     try {
       this.mostrar2 = !this.mostrar2;

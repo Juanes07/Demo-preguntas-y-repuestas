@@ -1,3 +1,11 @@
+/**
+ * Navbar Component
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -23,6 +31,9 @@ export class NavbarComponent implements OnInit {
     this.traerdatos();
   }
 
+  /**
+   * Trae los datos del usuario logueado
+   */
   traerdatos() {
     this.userLogged.subscribe((value) => {
       if (value?.email == undefined) {
@@ -33,10 +44,16 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  /**
+   * Redirige a la pagina de login
+   */
   login() {
     this.route.navigate(['login']);
   }
 
+  /**
+   * Cierra la sesion del usuario
+   */
   logout(): void {
     this.afAuth.signOut();
     setTimeout(() => {
@@ -45,7 +62,9 @@ export class NavbarComponent implements OnInit {
     this.ocultar();
 
   }
-
+  /**
+   * Oculta el boton de logout
+   */
   ocultar(){
      this.btnlogout.remove();
   }

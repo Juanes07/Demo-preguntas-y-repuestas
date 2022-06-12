@@ -1,3 +1,11 @@
+/**
+ * Componente question
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -48,10 +56,18 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {}
 
+    /**
+     *  Metodo que abre el modal de crear pregunta
+     * @param content   contenido del modal
+     */
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
   }
 
+  /**
+   *   Metodo que crea una pregunta
+   * @param question pregunta a crear
+   */
   saveQuestion(question: QuestionI): void {
     if(question.type && question.category){
      this.modalService.dismissAll();
@@ -85,7 +101,9 @@ export class QuestionComponent implements OnInit {
   }
   }
 
-
+  /**
+   * Metodo que limpia el formulario
+   */
   clearForm(){
     this.question = {id:
       this.authService.userData.uid == undefined
