@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
     projectId: 'demopreguntas-c2b95',
     appId: '1:147765557937:web:85ee69693e4cb94fa6c090',
