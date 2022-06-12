@@ -12,16 +12,29 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * Controlador Answer
+ *
+ * @author Juan Esteban Velasquez , Juan Pablo Toro Hurtado
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/respuestas")
 public class AnswerController {
 
-    //inyeccion del servicio
+    /**
+     * inyeccion del servicio
+     */
     @Autowired
     private AnswerServiceImpl answerService;
 
-    //EndPoint para listar Respuestas
+    /**
+     * EndPoint para listar Respuestas
+     * @return Flux<Answer>
+     */
     @Operation(summary = " --> Endpoint que nos permite listar todas las respuestas")
     @ApiResponse(responseCode = "200", description = "Se listaron las respuestas")
     @GetMapping("/listar")
@@ -33,7 +46,11 @@ public class AnswerController {
 
     }
 
-    //EndPoint para guardar respuesta
+    /**
+     * EndPoint para guardar respuesta
+     * @param answer
+     * @return Mono<Answer>
+     */
     @Operation(summary = " --> Endpoint que nos permite guardar una respuesta")
     @Parameter(name = "Mono<Answer>", description = "Flujo de un solo dato de tipo Answer")
     @ApiResponse(responseCode = "200", description = "Se guardo la respuesta")
@@ -45,7 +62,11 @@ public class AnswerController {
                 .body(answerService.guardarRespuestas(answer)));
     }
 
-    //EndPoint para obtener una respuesta por su Id
+    /**
+     * EndPoint para guardar respuesta
+     * @param answerid
+     * @return Mono<Answer>
+     */
     @Operation(summary = " --> Endpoint que nos permite obtener una respuesta por id")
     @Parameter(name = "Id", description = "Se recibe un id de tipo string")
     @ApiResponse(responseCode = "200", description = "Se obtuvo la respuesta por el id")
@@ -57,7 +78,11 @@ public class AnswerController {
                 .body(answerService.buscarRespuestasPorId(answerid)));
     }
 
-    //EndPoint para eliminar Respuesta por su Id
+    /**
+     * EndPoint para eliminar Respuesta por su Id
+     * @param answerId
+     * @return Mono<Void>
+     */
     @Operation(summary = " --> Endpoint que nos permite eliminar una respuesta por id")
     @Parameter(name = "Id", description = "Se recibe un id de tipo string")
     @ApiResponse(responseCode = "200", description = "Se elimno la respuesta por id")
@@ -70,7 +95,12 @@ public class AnswerController {
     }
 
 
-    //EndPoint para actualizar una respuesta por id
+    /**
+     * EndPoint para actualizar una respuesta por id
+     * @param answer
+     * @param id
+     * @return Mono<Answer>
+     */
     @Operation(summary = "--> Endpoint que nos permite actualizar una Respuesta por id")
     @ApiResponse(responseCode = "200", description = "Se Actualizo la Respuesta")
     @PutMapping("/actualizar/{id}")
@@ -87,7 +117,11 @@ public class AnswerController {
                                 .body(answerMono));
     }
 
-    //Endpoint para contar las respuestas por id de la pregunta
+    /**
+     * Endpoint para contar las respuestas por id de la pregunta
+     * @param id
+     * @return Mono<Long>
+     */
     @Operation(summary = "--> Endpoint que nos permite obtener el total de respuestas por el id de la pregunta")
     @GetMapping("/total/{id}")
     public Mono<Long> numeroDeRespuestasPorPregunta(@PathVariable("id") String id) {
@@ -97,7 +131,12 @@ public class AnswerController {
 
 
     }
-    //Endpoint para listar las respuestas por id de la pregunta
+
+    /**
+     * Endpoint para listar las respuestas por id de la pregunta
+     * @param id
+     * @return Flux<Answer>
+     */
     @Operation(summary = "--> Endpoint que nos permite listar las respuestas por el id de la pregunta")
     @ApiResponse(responseCode = "200",description = "Se listo correctamente las respuestas")
     @GetMapping("/listarid/{id}")
