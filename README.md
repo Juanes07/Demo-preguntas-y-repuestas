@@ -62,3 +62,35 @@ En el cual al hacer click a cualquiera de las pruebas se nos inicializa el test 
 ![imagen5](https://user-images.githubusercontent.com/96356792/173254178-3d90b67a-5676-4210-b0c3-aae88746a790.png)
 
 ![imagen6](https://user-images.githubusercontent.com/96356792/173254180-d5cf81e3-b5b7-45ab-9d92-f40c28b1ce5c.png)
+
+# Prueba Postman 
+
+#### Guardar Pregunta 🟢
+
+![guardarPregunta](https://user-images.githubusercontent.com/96356792/173972575-567310ab-1faf-43d9-a3ae-280b58f93bf3.png)
+
+#### Listar Pregunta 🟢
+
+![listarPreguntas](https://user-images.githubusercontent.com/96356792/173972602-c9659dc3-7ae4-47a7-b02d-e96d1fea9b06.png)
+
+#### Obtener Pregunta por ID 🟡
+
+![obtenerPreguntaId](https://user-images.githubusercontent.com/96356792/173972676-d784f267-33fd-4c7a-b6b2-069261d0f362.png)
+
+#### Eliminar Pregunta 🔴
+![eliminarPregunta](https://user-images.githubusercontent.com/96356792/173972711-4d533f3a-1faa-4c60-acf6-c458aa588f29.png)
+
+#### Guadar Respuesta 🟢
+![guardarRespuesta](https://user-images.githubusercontent.com/96356792/173972842-9a4e3630-fd25-4b40-8ae9-0a8563ace2dc.png)
+
+#### Listar Respuestas 🟢
+![listarRespuestas](https://user-images.githubusercontent.com/96356792/173972873-fecb9148-a8da-4479-ab05-1a7be266f4b1.png)
+
+#### Obtener Respuesta por ID 🟡
+![obtenerRespuestaId](https://user-images.githubusercontent.com/96356792/173972903-f9370d9a-3b65-4179-bf07-ab91dd250e4f.png)
+
+#### Eliminar Respuesta 🔴
+![eliminarRespuesta](https://user-images.githubusercontent.com/96356792/173973113-770d5030-07ab-43a2-88f1-ee0883cf4e7c.png)
+
+
+
